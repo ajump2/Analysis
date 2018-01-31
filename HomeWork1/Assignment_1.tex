@@ -1,0 +1,119 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage[left=1cm,right=1cm,top=1cm,bottom=1cm]{geometry}
+\setlength\parindent{0pt} %for no indentation
+\usepackage{tikz}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{definition}{Definition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{case}{Case}
+\newtheorem{subcase}{Subcase}[case]
+\newtheorem{claim}{Claim}
+\newtheorem{subclaim}{Subclaim}[claim]
+\newtheorem{fact}{Fact}
+\newtheorem{problem}{Problem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{constr}{Construction}
+\newtheorem{question}{Question}
+\newtheorem{algo}{Algorithm}
+\newtheorem{conjecture}{Conjecture}
+\renewcommand{\qedsymbol}{\begin{flushright}
+\sc q.e.d.
+\end{flushright}}
+\newtheorem{remark}{Remark}
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+   \node[shape=circle,draw,inner sep=1pt] (char) {#1};}}
+\newcommand{\contra}{\[
+\Rightarrow\!\Leftarrow
+\]}
+\newcommand*\abs[1]{
+\left\vert #1 \right\vert
+  }
+\pagenumbering{gobble}
+\begin{document}
+Adam Jump\\
+MATH 385\\
+HW $\#1$\\
+
+\begin{itemize}
+\item Prove De Morgan's Law\\
+  \proof{
+$(A\cup B)^{\complement}=A^{\complement}\cap B^{\complement}$,\\
+\begin{enumerate}
+\item $(A\cup B)^{\complement}\subseteq A^{\complement}\cap B^{\complement}$
+  Let $x\in(A\cup B)^{\complement}$,\\
+  so $x\not\in(A\cup B)$, definition complement,\\
+  and $x\not\in A$ or $x\not\in B$, definition $\cup$,\\
+  \begin{enumerate}
+  \item\label{A} $x\not\in A$\\
+    then $x\in A^{\complement}$, definition complement,\\
+    and $x\in A^{\complement}\cap B^{\complement}$ by composition
+  \item Follows from \textbf{\ref{A}}.
+  \end{enumerate}
+  $\therefore (A\cup B)^{\complement}\subseteq A^{\complement}\cap B^{\complement}$
+\item $A^{\complement}\cap B^{\complement}\subseteq (A\cup B)^{\complement}$\\
+  Let $x\in A^{\complement}\cup B^{\complement}$,\\
+  so $x\in A^{\complement} \text{ and } x\in B^{\complement}$ by definition $\cap$,\\
+  which implies $x\not\in A$ or $x\not\in B$ by definition complement,\\
+  and $x\not\in (A\cup B)$ definition $\cup$,\\
+  so $x\in (A\cup B)^{\complement}$ definition complement,\\
+  $\therefore (A^{\complement}\cap B^{\complement})\subseteq (A\cup B)^{\complement}$\\
+  which means that $(A\cup B)^{\complement}=A^{\complement}\cap B^{\complement}$
+\end{enumerate}
+}
+\item Prove Triangle Inequality\\
+  Show $\abs{x+y} \leq \abs{x} + \abs{y}$
+
+  \proof{$ $\newline
+    This means that we have four cases to consider,
+    \begin{enumerate}
+    \item\label{case1} $x\geq 0, y\geq 0$
+    \item\label{case2} $x\geq 0, y<0$
+    \item\label{case3} $x<0, y\geq 0$
+    \item\label{case4} $x<0, y<0$
+    \end{enumerate}
+    \textbf{\ref{case1}.} $\abs{x+y}=x+y$\\
+    and\\
+    $\abs{x}+\abs{y}=x+y$\\
+    $\implies \abs{x+y}= \abs{x}+\abs{y}$\\
+    and $\abs{x+y}\leq \abs{x}+\abs{y}$\\
+    \textbf{\ref{case2}.}
+    \begin{enumerate}
+    \item $\abs{y}\geq x$\\
+      $\abs{x+y}=-(x+y)$\\
+      and\\
+      $\abs{x}+\abs{y}=x-y$\\
+      $\implies 0\leq x$\\
+      and $0\leq 2x\implies 0\leq x+x$\\
+      $\implies -y\leq x+x-y$\\
+      $\implies -x-y\leq x-y$\\
+      $\implies -(x+y)\leq x-y$\\
+      $\implies \abs{x+y}=-(x+y)\leq x-y = \abs{x}+\abs{y}$\\
+      $\implies \abs{x+y}\leq \abs{x}+\abs{y}$\\
+      $\implies \abs{x+y}\leq \abs{x}+\abs{y}$\\
+    \item $\abs{y}<x$
+      which implies $\abs{x+y}=x+y$ and $\abs{x}+\abs{y}=x-y$,\\
+      $y < 0$ by assumption,\\
+      $\implies 2y < 0$,\\
+      $x+y\leq x-y$,\\
+    \end{enumerate}
+    \textbf{\ref{case3}.} Follows from \ref{case2}\\
+    \textbf{\ref{case4}.} $\abs{x+y} = -(x+y) = -x-y$\\
+    and so $\abs{x}+\abs{y} = -x-y$\\
+    $\implies \abs{x+y}=\abs{x}+\abs{y}$\\
+    $\implies \abs{x+y}\leq\abs{x}+\abs{y}$\\
+    \qedsymbol
+    }
+\item Example 1.3.5
+\item Example 1.3.6
+\end{itemize}
+\end{document}
