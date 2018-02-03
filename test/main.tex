@@ -19,7 +19,8 @@ arglen:length(args(cond1)),
 mylist:create_list(j,j,1,arglen),
 rest(mylist,-1)
 \end{maxima*}\]
-Give the equation $\imaxima{tex(eq1)}$, determine any possible solutions.
+Example 1.3.5. Given the equation $\imaxima{tex(abs(x-17)=abs(2*x+8))}$ we can determine the possible solutions as $\imaxima{mysol:to_poly_solve(abs(x-17)=abs(2*x+8),x),tex(setify(flatten(args(mysol))))}$\\
+Example 1.3.6. Given the equation $\imaxima{tex(eq1)}$, determine any possible solutions.
 
 This is really a case by case basis, which can be seen below,\\
 $

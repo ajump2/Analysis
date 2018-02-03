@@ -26,10 +26,18 @@ rest(mylist,-1)
 ,print(rbrace))$
 
 with_stdout("main.mxp", print("\\gdef\\mxpii",lbrace),
-tex(eq1)
+tex(abs(x-17)=abs(2*x+8))
 ,print(rbrace))$
 
 with_stdout("main.mxp", print("\\gdef\\mxpiii",lbrace),
+mysol:to_poly_solve(abs(x-17)=abs(2*x+8),x),tex(setify(flatten(args(mysol))))
+,print(rbrace))$
+
+with_stdout("main.mxp", print("\\gdef\\mxpiv",lbrace),
+tex(eq1)
+,print(rbrace))$
+
+with_stdout("main.mxp", print("\\gdef\\mxpv",lbrace),
 map(
     lambda([i],
         rest(args(

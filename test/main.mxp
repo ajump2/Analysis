@@ -1,9 +1,15 @@
 \gdef\mxpi { 
 } 
 \gdef\mxpii { 
-\left| x-2\right| +\left| x-10\right| =c
+\left| x-17\right| =\left| 2\,x+8\right| 
 } 
 \gdef\mxpiii { 
+\left \{x=-25 , x=3 \right \}
+} 
+\gdef\mxpiv { 
+\left| x-2\right| +\left| x-10\right| =c
+} 
+\gdef\mxpv { 
 \begin{cases} 
 {\it \%c_{13}}-8>0&c=2\,{\it \%c_{13}}-8\\ 
 {\it \%c_{13}}>0&x=10-{\it \%c_{13}}\\ 
