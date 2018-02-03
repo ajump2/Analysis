@@ -1,0 +1,3 @@
+\textbf{Well Ordering Principle.}\\ Every nonempty subset $S$ of the positive integers contains a least number, that is, a number $c$ in $S$ such that $c \leq n$ for all $n$ in $S$.\\
+\textbf{Principle of Mathematical Induction.}\\ Let $P_n$ be a statement associated With the positive integer $n$.\\ If $P_1$ is true, and\\ $P_{k+1}$ is true whenever $P_k$ is true,\\ then $P_n$ is true for all $n$ in $\mathbb{N}$.\\
+\textbf{Theorem 1.4.1.}\\ There is no positive integer between 0 and 1. Thus 1 is the smallest positive integer.
