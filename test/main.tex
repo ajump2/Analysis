@@ -1,0 +1,69 @@
+\documentclass[preview,border=12pt,12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{maxiplot}
+
+\begin{document} %First we'll add some useful functions
+\[\begin{maxima*}
+indexpower(equ,var):= hipow(equ,var), /*for the highest power of a polynomial*/
+powers(poly,var):= reverse(create_list(i,i,0,indexpower(poly,var))), /*to reverse the list of powers*/
+polycoeff(poly,var):=map(lambda([i],coeff(poly,x,i)),powers(poly,var)), /*put all the coefficients in a list*/
+systemeq(eq,var,list):=map("=",polycoeff(eq,var),list), /*to set the coefficients equal to a user entered list*/
+printfunc(i,j):=print(concat(tex1(i),">0","&",tex1(j),"\\\\")), /*for outputting a list to a latex cases enviroment*/
+load('to_poly_solve),
+to_poly_solve(abs(x-17)=abs(2*x+8),x),
+declare(c,posfun),
+eq1:abs(x-2)+abs(x-10)=c,
+cond1:to_poly_solve(eq1,[x,c]),
+arglen:length(args(cond1)),
+mylist:create_list(j,j,1,arglen),
+rest(mylist,-1)
+\end{maxima*}\]
+Give the equation $\imaxima{tex(eq1)}$, determine any possible solutions.
+
+This is really a case by case basis, which can be seen below,\\
+$
+\begin{maxima}
+map(
+    lambda([i],
+        rest(args(
+            args(cond1)[i]
+        ),-1)
+    ),
+        mylist
+    ),
+varcond:map(flatten,
+    map(
+    lambda([j],
+            map(
+            lambda([k],
+                flatten(args(k)
+                )
+            ),
+            args(j[1])
+        )
+            ),
+        map(
+    lambda([i],
+        rest(args(
+            args(cond1)[i]
+        ),-1)
+    ),
+        mylist
+    )
+)
+),
+sol1:map(
+    lambda([j],args(j)[2]),
+map(
+    lambda([i],
+        rest(args(
+                args(cond1)[i]
+            ),-1)
+    ),
+    mylist
+)
+),
+map(lambda([i,j],print("\\begin{cases}"),map(printfunc,i,j),print("\\end{cases}\\\\")),varcond,sol1)
+\end{maxima}$
+\end{document}

@@ -1,0 +1,75 @@
+ nolabels:true$
+ display2d:false$
+ set_plot_option([run_viewer, false])$
+ set_tex_environment_default("","")$
+ lbrace:"{"$
+ rbrace:"}"$
+ file_output_append:false$
+ with_stdout("main.mxp")$
+ file_output_append:true$ 
+
+with_stdout("main.mxp", print("\\gdef\\mxpi",lbrace),
+indexpower(equ,var):= hipow(equ,var), /*for the highest power of a polynomial*/
+powers(poly,var):= reverse(create_list(i,i,0,indexpower(poly,var))), /*to reverse the list of powers*/
+polycoeff(poly,var):=map(lambda([i],coeff(poly,x,i)),powers(poly,var)), /*put all the coefficients in a list*/
+systemeq(eq,var,list):=map("=",polycoeff(eq,var),list), /*to set the coefficients equal to a user entered list*/
+printfunc(i,j):=print(concat(tex1(i),">0","&",tex1(j),"\\\\")), /*for outputting a list to a latex cases enviroment*/
+load('to_poly_solve),
+to_poly_solve(abs(x-17)=abs(2*x+8),x),
+declare(c,posfun),
+eq1:abs(x-2)+abs(x-10)=c,
+cond1:to_poly_solve(eq1,[x,c]),
+arglen:length(args(cond1)),
+mylist:create_list(j,j,1,arglen),
+rest(mylist,-1)
+
+,print(rbrace))$
+
+with_stdout("main.mxp", print("\\gdef\\mxpii",lbrace),
+tex(eq1)
+,print(rbrace))$
+
+with_stdout("main.mxp", print("\\gdef\\mxpiii",lbrace),
+map(
+    lambda([i],
+        rest(args(
+            args(cond1)[i]
+        ),-1)
+    ),
+        mylist
+    ),
+varcond:map(flatten,
+    map(
+    lambda([j],
+            map(
+            lambda([k],
+                flatten(args(k)
+                )
+            ),
+            args(j[1])
+        )
+            ),
+        map(
+    lambda([i],
+        rest(args(
+            args(cond1)[i]
+        ),-1)
+    ),
+        mylist
+    )
+)
+),
+sol1:map(
+    lambda([j],args(j)[2]),
+map(
+    lambda([i],
+        rest(args(
+                args(cond1)[i]
+            ),-1)
+    ),
+    mylist
+)
+),
+map(lambda([i,j],print("\\begin{cases}"),map(printfunc,i,j),print("\\end{cases}\\\\")),varcond,sol1)
+
+,print(rbrace))$

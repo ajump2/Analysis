@@ -1,0 +1,23 @@
+\gdef\mxpi { 
+} 
+\gdef\mxpii { 
+\left| x-2\right| +\left| x-10\right| =c
+} 
+\gdef\mxpiii { 
+\begin{cases} 
+{\it \%c_{13}}-8>0&c=2\,{\it \%c_{13}}-8\\ 
+{\it \%c_{13}}>0&x=10-{\it \%c_{13}}\\ 
+\end{cases}\\ 
+\begin{cases} 
+-{\it \%c_{14}}-8>0&c=-8\\ 
+{\it \%c_{14}}>0&x={\it \%c_{14}}+10\\ 
+\end{cases}\\ 
+\begin{cases} 
+8-{\it \%c_{15}}>0&c=8\\ 
+{\it \%c_{15}}>0&x=10-{\it \%c_{15}}\\ 
+\end{cases}\\ 
+\begin{cases} 
+{\it \%c_{16}}>0&c=2\,{\it \%c_{16}}+8\\ 
+{\it \%c_{16}}+8>0&x={\it \%c_{16}}+10\\ 
+\end{cases}\\ 
+} 
