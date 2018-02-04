@@ -1,6 +1,6 @@
 \textbf{Definition 1.5.1.}\\ Let $A$ be a nonempty set of real numbers.\\
 (a) $M$ is the maximum of $A$ if $M$ is in $A$ and $x \leq M$ for all $x$ in $A$.\\
-(b) $m$ is the minimum of $A$ if $m$ is in $A$ and $m \leq X$ for all $x$ in $A$.\\
+(b) $m$ is the minimum of $A$ if $m$ is in $A$ and $m \leq x$ for all $x$ in $A$.\\
 \textbf{Definition 1.5.2}\\
 Let $A$ be a set of real numbers.\\
 (a) A number $M$ is an upper bound for $A$ if $x \leq M$ for all $x$ in $A$. We say that $A$ is bounded above if it has an upper bound.\\
